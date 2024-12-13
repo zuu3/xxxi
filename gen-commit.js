@@ -7,7 +7,7 @@ async function getDefaultBranch() {
       'git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"',
       { encoding: 'utf-8' }
     ).trim();
-    return defaultBranch;
+    return defaultBranch || 'master';
   } catch {
     return 'master';
   }
@@ -26,7 +26,7 @@ async function getBranchList() {
   }
 }
 
-function hasChanges() {
+function hasChanges() { // 변경사항 잇는지 확인하기
   try {
     const changes = execSync('git status --porcelain', { encoding: 'utf-8' });
     return changes.trim() !== '';
