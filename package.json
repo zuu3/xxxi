@@ -1,11 +1,11 @@
 {
-  "name": "snap",
+  "name": "xxxi",
   "version": "1.0.0",
   "type": "module",
   "description": "A CLI tool to generate and manage Git commit messages effortlessly",
   "main": "gen-commit.js",
   "bin": {
-    "snap": "gen-commit.js"
+    "xxxi": "gen-commit.js"
   },
   "keywords": ["git", "commit", "cli", "tool"],
   "author": "Juhyun",

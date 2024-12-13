@@ -137,5 +137,5 @@ const args = process.argv.slice(2);
 if (args[0] === 'commit') {
   genCommit();
 } else {
-  console.log('사용법: snap commit');
+  console.log('사용법: xxxi commit');
 }
