@@ -1,6 +1,9 @@
+#!/usr/bin/env node
+
 import inquirer from 'inquirer';
 import { execSync } from 'child_process';
 
+// 기본 브랜치 감지
 async function getDefaultBranch() {
   try {
     const defaultBranch = execSync(
@@ -13,6 +16,7 @@ async function getDefaultBranch() {
   }
 }
 
+// 브랜치 목록 가져오기
 async function getBranchList() {
   execSync(`git fetch --all`);
   try {
@@ -26,7 +30,8 @@ async function getBranchList() {
   }
 }
 
-function hasChanges() { // 변경사항 잇는지 확인하기
+// 변경사항 확인
+function hasChanges() {
   try {
     const changes = execSync('git status --porcelain', { encoding: 'utf-8' });
     return changes.trim() !== '';
@@ -36,6 +41,7 @@ function hasChanges() { // 변경사항 잇는지 확인하기
   }
 }
 
+// 커밋 생성
 async function genCommit() {
   const defaultBranch = await getDefaultBranch();
   const branches = await getBranchList();
@@ -61,7 +67,7 @@ async function genCommit() {
       type: 'input',
       name: 'desc',
       message: '커밋 메시지를 입력하세요:',
-      validate: (input) => input ? true : '커밋 메시지는 필수입니다.',
+      validate: (input) => (input ? true : '커밋 메시지는 필수입니다.'),
     },
     {
       type: 'input',
@@ -125,4 +131,11 @@ async function genCommit() {
   }
 }
 
-genCommit();
+// 명령어 확인 및 처리
+const args = process.argv.slice(2);
+
+if (args[0] === 'commit') {
+  genCommit();
+} else {
+  console.log('사용법: snap commit');
+}

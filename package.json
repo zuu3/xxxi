@@ -1,11 +1,15 @@
 {
-  "name": "auto-commit-message",
+  "name": "snap",
   "version": "1.0.0",
   "type": "module",
+  "description": "A CLI tool to generate and manage Git commit messages effortlessly",
   "main": "gen-commit.js",
-  "scripts": {
-    "start": "node gen-commit.js"
+  "bin": {
+    "snap": "gen-commit.js"
   },
+  "keywords": ["git", "commit", "cli", "tool"],
+  "author": "Juhyun",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^9.0.0"
   }
