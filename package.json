@@ -1,0 +1,12 @@
+{
+  "name": "auto-commit-message",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "gen-commit.js",
+  "scripts": {
+    "start": "node gen-commit.js"
+  },
+  "dependencies": {
+    "inquirer": "^9.0.0"
+  }
+}
