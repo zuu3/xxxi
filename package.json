@@ -7,10 +7,16 @@
   "bin": {
     "xxxi": "gen-commit.js"
   },
-  "keywords": ["git", "commit", "cli", "tool"],
+  "keywords": [
+    "git",
+    "commit",
+    "cli",
+    "tool"
+  ],
   "author": "Juhyun",
   "license": "MIT",
   "dependencies": {
-    "inquirer": "^9.0.0"
+    "inquirer": "^9.0.0",
+    "xxxi": "^1.0.0"
   }
 }
